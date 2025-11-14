@@ -6,36 +6,37 @@ namespace Tyuiu.PavlovaVV.Sprint4.Task7.V9
         static void Main(string[] args)
         {
             DataService ds = new DataService();
-            int rows = 3;
-            int columns = 3;
+            int n = 3;
+            int m = 3;
+            int[,] mtrx = new int[n, m];
             string str = "864299753";
-            Console.WriteLine("*  ИСХОДНЫЕ ДАННЫЕ:                                                       *");
+
+            Console.WriteLine("***************************************************************************");
+            Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ :                                                       *");
+            Console.WriteLine("***************************************************************************");
+
             int index = 0;
-            Console.WriteLine("\nМатрица:");
-            for (int i = 0; i < rows; i++)
+
+
+            Console.WriteLine("\nМассив");
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < columns; j++)
+                for (int j = 0; j < m; j++)
                 {
-                    Console.Write($"{str[index]} \t");
+                    Console.Write($"{str[index]}\t");
                     index++;
                 }
                 Console.WriteLine();
+
             }
 
+            Console.WriteLine("***************************************************************************");
+            Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
+            Console.WriteLine("***************************************************************************");
 
-            int result = ds.Calculate(rows, columns, str);
 
-            Console.WriteLine($"\nКоличество четных чисел: {result}");
-
-
-            Console.WriteLine("\nАнализ четности:");
-            foreach (char c in str)
-            {
-                int num = int.Parse(c.ToString());
-                string parity = (num % 2 == 0) ? "четное" : "нечетное";
-                Console.WriteLine($"{num} - {parity}");
-            }
-
+            int res = ds.Calculate(n, m, str);
+            Console.WriteLine("Количество четных чисел: " + res);
             Console.ReadKey();
         }
     }
