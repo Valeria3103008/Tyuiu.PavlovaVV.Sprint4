@@ -6,20 +6,16 @@ namespace Tyuiu.PavlovaVV.Sprint4.Task7.V9.Lib
         public int Calculate(int n, int m, string value)
         {
             int[,] mtrx = new int[n, m];
-            int index = 0;
+            int count = 0;
 
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < m; j++)
+                for (int j = 0; j < 3; j++)
                 {
-                    mtrx[i, j] = int.Parse(value[index].ToString());
-                    index++;
+                    mtrx[i, j] = int.Parse(value[i * 3 + j].ToString());
                 }
             }
-
-
-            int count = 0;
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
